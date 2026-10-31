@@ -1,0 +1,16 @@
+# environments / caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+# large downloads (recreated by run.bat setup / first run)
+models/TripoSR/
+models/hf_cache/
+data/
+# generated results (keep the folder, not the contents)
+outputs/*
+!outputs/.gitkeep
+# trained classifier is small: commit it if you want it in the repo
+*.part

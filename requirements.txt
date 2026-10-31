@@ -1,0 +1,29 @@
+# PyTorch is installed separately by run.bat / run.ps1 (CUDA 12.1 build):
+#   pip install torch==2.3.1 torchvision==0.18.1 --index-url https://download.pytorch.org/whl/cu121
+# Tested target: Python 3.10, Windows 10/11 or Linux, NVIDIA GPU >= 8 GB VRAM.
+numpy<2
+diffusers==0.30.3
+transformers==4.44.2
+accelerate==0.33.0
+huggingface_hub==0.24.7
+safetensors>=0.4.3
+rembg
+onnxruntime
+opencv-python-headless>=4.9
+Pillow>=10.0
+scikit-image>=0.22
+scipy>=1.11
+trimesh
+networkx
+fast-simplification
+xatlas
+omegaconf==2.3.0
+einops==0.7.0
+imageio
+gradio==4.44.1
+pydantic==2.10.6
+matplotlib
+pandas
+tabulate
+requests
+pytest
