@@ -23,29 +23,46 @@ for m in ["trimesh","xatlas","rembg","diffusers","transformers","accelerate","gr
 
 7. !ls models/TripoSR
 
-8. !python cli.py --warmup
+8. %cd /content/IIT-TECHZEPHYR
+!pip install -q -r requirements.txt
 
-9. import sys, transformers, diffusers, torch
+9. %cd /content/IIT-TECHZEPHYR
+!pip install -q trimesh xatlas rembg onnxruntime scikit-image opencv-python-headless \
+    diffusers transformers accelerate safetensors gradio omegaconf einops \
+    huggingface_hub imageio scipy pillow
+
+10. !ls models
+
+11. !python cli.py --warmup
+
+12. !pip install -q "transformers>=4.48,<5"
+
+13. !pip install -q "transformers==4.57.1" "huggingface_hub>=0.34,<1.0" "diffusers==0.35.2"
+
+14. %cd /content/IIT-TECHZEPHYR
+!python cli.py --warmup
+
+15. import sys, transformers, diffusers, torch
 print("python", sys.version.split()[0])
 print("transformers", transformers.__version__)
 print("diffusers", diffusers.__version__)
 print("torch", torch.__version__)
 
-10. import importlib.metadata as md
+16. import importlib.metadata as md
 for p in ["diffusers", "transformers", "huggingface_hub", "accelerate"]:
     print(p, md.version(p))
 
-11. %cd /content/IIT-TECHZEPHYR
+17. %cd /content/IIT-TECHZEPHYR
 import torch
 print(torch.cuda.is_available(), torch.cuda.get_device_name(0) if torch.cuda.is_available() else "no GPU")
 
-12. !python cli.py examples/mug.png --prompt "red ceramic coffee mug"
+18. !python cli.py examples/mug.png --prompt "red ceramic coffee mug"
 
-13. import glob
+19. import glob
 from IPython.display import Image, display
 run = sorted(glob.glob("outputs/*"))[-1]
 print(run)
 display(Image(run + "/preview.png"))
 display(Image(run + "/2_candidate_0_score*.png".replace("*", "")) if False else Image(sorted(glob.glob(run + "/2_candidate_*.png"))[0]))
 
-14. !python app.py --share
+20. !python app.py --share
